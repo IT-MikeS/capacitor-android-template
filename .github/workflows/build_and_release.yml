@@ -52,6 +52,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         dry_run: true
+        name: "main"
 
     - name: Create GitHub release
       uses: actions/create-release@v1
