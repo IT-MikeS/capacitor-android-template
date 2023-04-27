@@ -2,10 +2,10 @@ import { join } from 'path';
 import { mkdir, access } from 'fs/promises';
 import { constants } from 'fs';
 import * as cp from 'child_process';
-import * as util from 'util';
+import { promisify} from 'util';
 import tar from 'tar';
 
-const cp_exec_promise = util.promisify(cp.exec);
+const cp_exec_promise = promisify(cp.exec);
 
 ((async () => {
   try {
