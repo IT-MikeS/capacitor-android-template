@@ -15,5 +15,8 @@
   },
   "dependencies": {
     "tar": "^6.1.13"
+  },
+  "repository": {
+    "url": "https://github.com/IT-MikeS/capacitor-android-template.git"
   }
 }
