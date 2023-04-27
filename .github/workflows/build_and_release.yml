@@ -58,22 +58,15 @@ jobs:
 
     - name: Create GitHub release
       id: create_release
-      uses: actions/create-release@v1
+      uses: softprops/action-gh-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.tag_version.outputs.tag }}
-        release_name: Release ${{ steps.tag_version.outputs.tag }}
+        name: Release ${{ steps.tag_version.outputs.tag }}
         body: ''
         draft: false
         prerelease: false
-
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./dist/android-template.tar.gz
-        asset_name: android-template.tar.gz
-        asset_content_type: application/gzip
+        generate_release_notes: true
+        files: |
+          ./dist/android-template.tar.gz
